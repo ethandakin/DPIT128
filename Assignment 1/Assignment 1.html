@@ -35,6 +35,42 @@
       #task1 {
         border-radius: 65px;
       }
+      
+      .videoshadow {
+        box-shadow: 10px 10px 10px #808080;
+      }
+
+      video:hover {
+        cursor: pointer;
+      }
+
+      .task3 {
+        font-family: Arial, sans-serif;
+      }
+
+      dt {
+        font-weight: bold;
+        text-shadow: 2px 2px 2px #bfbfbf;
+      }
+
+      table, td, th {
+        border: 1px solid #808080;
+        border-collapse: collapse;
+      }
+
+      table {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      td {
+        background-color: #f8f8f8;
+      }
+
+      .tablestyle {
+        font-family: Calibri, sans-serif;
+        font-size: 16px;
+      }
 
     </style>
   </head>
@@ -62,7 +98,7 @@
 
     <!-- BEGIN: Task 2 Solution -->
 
-    <video width=480 class="shadow-element" controls = "" loop = "">
+    <video class="videoshadow" controls width=480 class="shadow-element">
       <source src="https://mywebspace.net.au/UOWC128/assignment_1/videos/task_2.mp4" type="video/mp4">   
     </video>
 
@@ -74,7 +110,22 @@
 
       <!-- BEGIN: Task 3 Solution -->
 
-      INSERT SOLUTION HERE
+      <ul class="task3" style="list-style-type: square;">
+        <li>Cumulus Clouds </li>
+          <ul style="list-style-image: url(https://mywebspace.net.au/UOWC128/assignment_1/images/task_3.png);">
+            <li>Tend to develop on sunny days</li>
+            <li>Have a generally rounded/puffy appearance</li>
+            <li>Are created by localised ground heating</li>
+            <li>Will dissipate in the cooler evening</li>
+            <li>Are a widely recognized and iconic cloud</li>
+          </ul>
+        <li>Stratus Clouds</li>
+        <li>Stratocumulus Clouds</li>
+        <li>Altocumulus Clouds</li>
+        <li>Nimbostratus Clouds</li>
+        <li>Altostratus Clouds</li>
+        <li>Cirrus Clouds</li>
+      </ul>
 
       <!-- END: Task 3 Solution -->
 
@@ -86,7 +137,20 @@
 
       <!-- BEGIN: Task 4 Solution -->
 
-      INSERT SOLUTION HERE
+      <ol>
+        <li>Severe Fog Conditions</li>
+        <li>Severe Frost Conditions</li>
+        <li>Severe Snow Conditions</li>
+        <li>Severe Flood Conditions</li>
+        <li>Severe Storm Conditions</li>
+          <ol style="list-style-type: lower-alpha; font-style: italic;">
+            <li>Thunder & Lightning</li>
+            <li>Gales & Blizzards</li>
+            <li>Hail & Graupel</li>
+            <li>Tornadoes (Single & Multi-Vortex)</li>
+            <li>Cyclones (Tropical & Non-Tropical)</li>
+          </ol>
+      </ol>
 
       <!-- END: Task 4 Solution -->
 
@@ -98,7 +162,18 @@
 
       <!-- BEGIN: Task 5 Solution -->
 
-      INSERT SOLUTION HERE
+      <dl style="color: #2361b7; margin-left: 25px;">
+        <dt>Storm Category 1</dt>
+        <dd>Average wind speed between 63 and 88 km/h</dd>
+        <dt>Storm Category 2</dt>
+        <dd>Average wind speed between 89 and 117 km/h</dd>
+        <dt>Storm Category 3</dt>
+        <dd>Average wind speed between 118 and 159 km/h</dd>
+        <dt>Storm Category 4</dt>
+        <dd>Average wind speed between 160 and 199 km/h</dd>
+        <dt>Storm Category 5</dt>
+        <dd>Average wind speed above 200 km/h</dd>
+      </dl>
 
       <!-- END: Task 5 Solution -->
 
@@ -108,7 +183,48 @@
 
     <!-- BEGIN: Task 6 Solution -->
 
-    INSERT SOLUTION HERE
+    <table class="tablestyle" style="width: 650px;">
+        <caption style="font-weight: bold; margin-bottom: 10px;"> 4 Day Weather Forecast - Wollongong Region</caption>
+        
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+
+        <tr>
+          <td><img style="width: 100px;" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_1.png"></img></td>
+          <td><img style="width: 100px;" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_2.png"></img></td>
+          <td><img style="width: 100px;" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_3.png"></img></td>
+          <td><img style="width: 100px;" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_4.png"></img></td>
+        </tr>
+
+        <tr>
+          
+        </tr>
+
+        <!-- <thead>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+        </thead>
+
+        <tr>
+          <td><img style="width: 100px;" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_1.png"></img></td>
+          <td><img style="width: 100px;" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_2.png"></img></td>
+          <td><img style="width: 100px;" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_3.png"></img></td>
+          <td><img style="width: 100px;" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_4.png"></img></td>
+        </tr>
+
+        <tr>
+          
+        </tr>
+
+        <tfoot>
+          <th>Forecast Updated 01/11/2023</th>
+        </tfoot> -->
+
+    </table>
 
     <!-- END: Task 6 Solution -->
 
