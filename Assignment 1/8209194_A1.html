@@ -223,42 +223,45 @@
           </tr>
         </thead>
 
-        <!-- Image cells row, includes all necessary images -->
-        <tr id="image-cell">
-          <!-- A td element with a column span of 2 wraps around the img element, which has a size of 100 pixels. -->
-          <td colspan="2"><img style="width: 100px;" alt="A graphic of the sun" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_1.png"></td>
-          <td colspan="2"><img style="width: 100px;" alt="A graphic of the sun behind a cloud" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_2.png"></td>
-          <td colspan="2"><img style="width: 100px;" alt="A graphic of raining clouds" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_3.png"></td>
-          <td colspan="2"><img style="width: 100px;" alt="A graphic of stormy clouds" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_4.png"></td>
-        </tr>
+        <!-- Table body section -->
+        <tbody>
+          <!-- Image cells row, includes all necessary images -->
+          <tr id="image-cell">
+            <!-- A td element with a column span of 2 wraps around the img element, which has a size of 100 pixels. -->
+            <td colspan="2"><img style="width: 100px;" alt="A graphic of the sun" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_1.png"></td>
+            <td colspan="2"><img style="width: 100px;" alt="A graphic of the sun behind a cloud" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_2.png"></td>
+            <td colspan="2"><img style="width: 100px;" alt="A graphic of raining clouds" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_3.png"></td>
+            <td colspan="2"><img style="width: 100px;" alt="A graphic of stormy clouds" src="https://mywebspace.net.au/UOWC128/assignment_1/images/task_6_4.png"></td>
+          </tr>
 
-        <!-- Third row contains the degrees for each day-->
-        <!-- As the days had a column span of 2, there are 2 degree ratings (high and low) for each day.-->
-        <tr>
-          <td>High 26&deg;</td>
-          <td>Low 13&deg;</td>
-          <td>High 22&deg;</td>
-          <td>Low 11&deg;</td>
-          <td>High 18&deg;</td>
-          <td>Low 9&deg;</td>
-          <td>High 16&deg;</td>
-          <td>Low 7&deg;</td>
-        </tr>
+          <!-- Third row contains the degrees for each day-->
+          <!-- As the days had a column span of 2, there are 2 degree ratings (high and low) for each day.-->
+          <tr>
+            <td>High 26&deg;</td>
+            <td>Low 13&deg;</td>
+            <td>High 22&deg;</td>
+            <td>Low 11&deg;</td>
+            <td>High 18&deg;</td>
+            <td>Low 9&deg;</td>
+            <td>High 16&deg;</td>
+            <td>Low 7&deg;</td>
+          </tr>
 
-        <!-- Warning cells, with colour defined inline. -->
-        <tr style="background-color: #d3d3d3;">
-          <!--Column span of 4, rowspan of 2 for spanning over 2 days.-->
-          <th colspan="4" rowspan="2">No Weather Warning</th>
-          <!-- Strong Winds on Wednesday. -->
-          <th colspan="2">Strong Winds</th>
-          <!-- Heavy Rains on Thursday, with a rowspan of 2.-->
-          <th colspan="2" rowspan="2">Heavy Rains</th>
-        </tr>
+          <!-- Warning cells, with colour defined inline. -->
+          <tr style="background-color: #d3d3d3;">
+            <!--Column span of 4, rowspan of 2 for spanning over 2 days.-->
+            <th colspan="4" rowspan="2">No Weather Warning</th>
+            <!-- Strong Winds on Wednesday. -->
+            <th colspan="2">Strong Winds</th>
+            <!-- Heavy Rains on Thursday, with a rowspan of 2.-->
+            <th colspan="2" rowspan="2">Heavy Rains</th>
+          </tr>
 
-        <!-- Storm category in next row. -->
-        <!-- This is due to the second element in the warning cells row only spanning one row.-->
-        <!-- Colour defined inline, with colour decided with a colour picker used on the original image.-->
-        <tr><th colspan="2" style="background-color: #f9e5e5; color: #b54444;">Category 1</th></tr>
+          <!-- Storm category in next row. -->
+          <!-- This is due to the second element in the warning cells row only spanning one row.-->
+          <!-- Colour defined inline, with colour decided with a colour picker used on the original image.-->
+          <tr><th colspan="2" style="background-color: #f9e5e5; color: #b54444;">Category 1</th></tr>
+        </tbody>
 
         <!-- Table footer, which spans across the entire length of the table. -->
         <!-- Describes when the forecast was last updated. -->
