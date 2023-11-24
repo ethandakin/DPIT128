@@ -53,6 +53,36 @@
 
       /* INSERT INTERNAL CSS HERE */
 
+      /* Type selector for font and font size in the form. */
+      div {
+        font-size: 14px;
+        font-family: Arial;
+      }
+      
+      /* Margin class selector for image and control/widget buttons */
+      .margin {
+        margin: 20px;
+      }
+
+      /* CSS for input type, with an attribute selector based on the type of text. This applies to all text input, select and textarea elements */
+      /* This rule applies background color, padding and a border. */
+      input, select, textarea {
+        background-color: #fffff9;
+        padding: 5px;
+        border: 1px dotted #404040;
+      }
+
+      /* Type selector for input, select and textarea font and font size. */
+      input, select, textarea {
+        font-size: 13px;
+        font-family: Arial;
+      }
+
+      /* Round class selector, for most elements in the form */
+      .round {
+        border-radius: 5px;
+      }
+
     </style>
   </head>
   <body>
@@ -71,6 +101,60 @@
 
     <!-- BEGIN: Task 4 Solution -->
 
+
+    <!-- Main div element for form -->
+    <!-- Background color specified with inline css styling, and container rule utilized. -->
+    <div class="container round" style="background-color: #f9fff9;">
+      <form action="https://mywebspace.net.au/UOWC128/assignment_2/php/task_4.php" method="post" target="_blank">
+        <!-- First div for the company logo -->
+        <div>
+          <!-- Image with an absolute url, and appropriate size. Margin class is also added onto the image styling. -->
+          <img class="margin" width="200" alt="A graphic of the word feedback in colourful letters." src="https://mywebspace.net.au/UOWC128/assignment_2/images/task_4.png">
+        </div>
+
+        <!--Second div for the full name.-->
+        <div class="margin">
+          <!--Label for full name, wrapped in a div.-->
+          <div class="field-label round"><label for="full-name">Full Name: </label></div>
+          <!-- Full name input-->
+          <input class="round" style="width: 350px;" id="full-name" name="full-name" type="text" placeholder="Please enter your full name here..." required>
+        </div>
+
+        <!-- Third div for the email address.-->
+        <div class="margin">
+          <div class="field-label round"><label for="email-address">Email Address: </label></div>
+          <input class="round" style="width: 350px;" id="email-address" name="email-address" type="email" placeholder="Please enter your email address here..." required>
+        </div>
+
+        <!-- Fourth div for the services. -->
+        <div class="margin">
+          <div class="field-label round"><label for="services">Services: </label></div>
+
+          <!-- Multiple select element, for all the services. -->
+          <select style="width: 350px;" class="round" name="services[]" id="services" multiple> 
+            <option>Consulting</option>
+            <option>Designing</option>
+            <option>Implementation</option>
+            <option>Testing</option>
+          </select>
+        </div>
+
+        <!-- Fifth div for the comments-->
+        <div class="margin">
+          <div class="field-label round"><label>Comments: </label></div>
+          <!-- Text area for the comments.-->
+          <textarea class="round" style="width: 350px;" name="comments" id="comments" placeholder="Enter your comments here..."></textarea>
+        </div>
+        
+        <!-- Final div for the buttons, which are centre aligned.-->
+        <div style="text-align: center;" class="margin">
+          <!-- Both the buttons have a margin-left of 10px, consistent with previous forms.-->
+          <input class="round" style="margin-left: 10px;" type="submit" value="Submit">
+          <input class="round" style="margin-left: 10px;" type="reset" value="Reset">
+        </div>
+
+      </form>
+    </div>
 
     <!-- END: Task 4 Solution -->
 

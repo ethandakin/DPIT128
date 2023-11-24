@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<!-- Assignment 2 (Task ?) by Ethan Dakin (8209194) -->
+<!-- Assignment 2 (Task 1) by Ethan Dakin (8209194) -->
 
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>DPIT128: Assignment 2 (Task ?)</title>
+    <title>DPIT128: Assignment 2 (Task 1)</title>
     <style>
 
       /* BEGIN: Template CSS (DO NOT ALTER/REMOVE) ----------- */
@@ -53,26 +53,32 @@
 
       /* INSERT INTERNAL CSS HERE */
 
+      /* Type selector for font and font size in the form. */
       div {
         font-size: 14px;
         font-family: Arial;
       }
       
+      /* Margin class selector for image and control/widget buttons */
       .margin {
         margin: 20px;
       }
 
+      /* CSS for input type, with an attribute selector based on the type of text. This applies to all text input elements */
+      /* This rule applies background color, padding and a border. */
       input[type="text"] {
         background-color: #fffff9;
         padding: 5px;
         border: 1px dotted #404040;
       }
 
-      input {
+      /* Type selector for input font and font size. */
+      input, select {
         font-size: 13px;
         font-family: Arial;
       }
 
+      /* Round class selector, for most elements in the form */
       .round {
         border-radius: 5px;
       }
@@ -95,17 +101,27 @@
 
     <!-- BEGIN: Task 1 Solution -->
 
-
+    <!-- Main div element for form -->
+    <!-- Background color specified with inline css styling, and container rule utilized. -->
     <div class="container round" style="background-color: #ffffff;">
       <form action="https://www.youtube.com/results" method="get" target="_blank">
+        <!-- Separate div for the company logo -->
         <div>
-          <img class="margin" width="200px" src="https://mywebspace.net.au/UOWC128/assignment_2/images/task_1.png">
+          <!-- Image with an absolute url, and appropriate size. Margin class is also added onto the image styling. -->
+          <img class="margin" width="200" alt="The logo for YouTube." src="https://mywebspace.net.au/UOWC128/assignment_2/images/task_1.png">
         </div>
 
+        <!-- Div element to hold input elements -->
+        <!-- Margin class applied to div for the inputs and label. -->
         <div class="margin">
-          <label class="field-label round" for="text-input">Search Terms:</label>
-          <input class="round" style="width: 350px;" type="text" name="search_query" placeholder="Please enter search terms here...">
+          <!-- Label element, with class of field-label and round for text-input element. -->
+          <!-- This is wrapped in a div element to prevent an unwanted region where the mouse cursor detects where the element is, but there is no text there. -->
+          <div class="field-label round"><label for="text-input">Search Terms:</label></div>
+          <!-- Input field, with a width of 350px, and an id of text-input. Furthermore, it is a required input element. -->
+          <input class="round" style="width: 350px;" id="text-input" type="text" name="search_query" placeholder="Please enter search terms here..." required>
+          <!-- Submit button, with a margin-left of 10px. -->
           <input class="round" style="margin-left: 10px;" type="submit" value="Submit">
+          <!-- Reset button, with class of round and a margin left of 10 px. -->
           <input class="round" style="margin-left: 10px" type="reset" value="Reset">
         </div>
       </form>

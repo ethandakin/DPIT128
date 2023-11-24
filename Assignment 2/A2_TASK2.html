@@ -53,26 +53,32 @@
 
       /* INSERT INTERNAL CSS HERE */
 
+      /* Type selector for font and font size in the form. */
       div {
         font-size: 14px;
         font-family: Arial;
       }
       
+      /* Margin class selector for image and control/widget buttons */
       .margin {
         margin: 20px;
       }
 
+      /* CSS for input type, with an attribute selector based on the type of text. This applies to all text input elements */
+      /* This rule applies background color, padding and a border. */
       input[type="text"] {
         background-color: #fffff9;
         padding: 5px;
         border: 1px dotted #404040;
       }
 
+      /* Type selector for input font and font size. */
       input {
         font-size: 13px;
         font-family: Arial;
       }
 
+      /* Round class selector, for most elements in the form */
       .round {
         border-radius: 5px;
       }
@@ -95,28 +101,50 @@
 
     <!-- BEGIN: Task 2 Solution -->
 
+    <!-- Main div element for form -->
+    <!-- Background color specified with inline css styling, and container rule utilized. -->
     <div class="container round" style="background-color: #fff9ef;">
       <form action="https://www.amazon.com.au/s" method="get" target="_blank">
+        <!-- Separate div for the company logo -->
         <div>
-          <img class="margin" width="175px" src="https://mywebspace.net.au/UOWC128/assignment_2/images/task_2.png">
+          <!-- Image with an absolute url, and appropriate size. Margin class is also added onto the image styling. -->
+          <img class="margin" width="175" alt="The logo for Amazon" src="https://mywebspace.net.au/UOWC128/assignment_2/images/task_2.png">
         </div>
 
+        <!-- Div element to hold input elements -->
+        <!-- Margin class applied to div for the inputs and label. -->
         <div class="margin">
+          <!-- Label element, with class of field-label and round for text-input element. -->
+          <!-- This is wrapped in a div element to prevent an unwanted region where the mouse cursor detects where the element is, but there is no text there. -->
           <div class="field-label round"><label for="text-input">Search Terms:</label></div>
-          <input class="round" style="width: 350px;" type="text" name="k" placeholder="Please enter search terms here...">
+          <!-- Input field, with a width of 350px, and an id of text-input. Furthermore, it is a required input element. -->
+          <input class="round" style="width: 350px;" id="text-input" type="text" name="k" placeholder="Please enter search terms here..." required>
+          <!-- Submit button, with a margin-left of 10px. -->
           <input class="round" style="margin-left: 10px;" type="submit" value="Submit">
+          <!-- Reset button, with class of round and a margin left of 10 px. -->
           <input class="round" style="margin-left: 10px" type="reset" value="Reset">
         </div>
 
+        <!-- Div element to hold all radio inputs, with margin class. -->
         <div class="margin">
+          <!-- First radio button, with an id of all, and a value of aps, which defaults to all categories. -->
+          <!-- This element is check by default, as specified. -->
           <input type="radio" name="i" id="all" value="aps" checked>
-          <label for="all" style="margin-right: 35px;">Search within all categories<br></label>
+          <!-- Label for the first radio button, with a break line.-->
+          <label for="all">Search within all categories<br></label>
+
+          <!-- Second radio button, this one has a value of movies-tv, as this is the specified category. -->
           <input type="radio" name="i" id="movies-tv" value="movies-tv">
-          <label for="movies-tv" style="margin-right: 35px;">Search within Movies & TV<br></label>
+          <label for="movies-tv">Search within Movies & TV<br></label>
+
+          <!-- Third radio button, for sports categories.. -->
           <input type="radio" name="i" id="sports" value="sporting">
-          <label for="sports" style="margin-right: 35px;">Search within Sports, Fitness & Outdoors<br></label>
+          <label for="sports">Search within Sports, Fitness & Outdoors<br></label>
+
+          <!-- Final radio button, for video games. -->
           <input type="radio" name="i" id="videogames" value="videogames">
-          <label for="videogames" style="margin-right: 35px;">Search within Video Games<br></label>
+          <!-- This label does not have a break line, as it is the last one.-->
+          <label for="videogames">Search within Video Games</label>
         </div>
       </form>
     </div>

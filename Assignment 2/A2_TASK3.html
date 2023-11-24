@@ -53,26 +53,32 @@
 
       /* INSERT INTERNAL CSS HERE */
 
+      /* Type selector for font and font size in the form. */
       div {
         font-size: 14px;
         font-family: Arial;
       }
       
+      /* Margin class selector for image and control/widget buttons */
       .margin {
         margin: 20px;
       }
 
+      /* CSS for input type, with an attribute selector based on the type of text. This applies to all text input elements */
+      /* This rule applies background color, padding and a border. */
       input[type="text"] {
         background-color: #fffff9;
         padding: 5px;
         border: 1px dotted #404040;
       }
 
-      input {
+      /* Type selector for input and select types font and font size. */
+      input, select {
         font-size: 13px;
         font-family: Arial;
       }
 
+      /* Round class selector, for most elements in the form */
       .round {
         border-radius: 5px;
       }
@@ -95,28 +101,40 @@
 
     <!-- BEGIN: Task 3 Solution -->
 
-    <div class="container round" style=" background-image: https://mywebspace.net.au/UOWC128/assignment_2/images/task_2.png;">
+    <!-- Main div element for form -->
+    <!-- Background image specified with inline css styling, and container rule utilized. -->
+    <div class="container round" style="background-image: url(https://mywebspace.net.au/UOWC128/assignment_2/images/bg_tile.png);">
       <form action="https://www.supercheapauto.com.au/search" method="get" target="_blank">
+
+      <!--First div for the company logo-->
         <div>
-          <img class="margin" width="250px" src="https://mywebspace.net.au/UOWC128/assignment_2/images/task_3.png">
+          <!-- Company image. -->
+          <img class="margin" width="250" alt="The logo for Supercheap Auto" src="https://mywebspace.net.au/UOWC128/assignment_2/images/task_3.png">
         </div>
 
+        <!--Second div for the search terms and input buttons.-->
         <div class="margin">
-          <div class="field-label round"><label for="text-input">Search Terms:</label></div>
-          <input class="round" style="width: 350px;" type="text" name="q" placeholder="Please enter search terms here...">
+          <div class="field-label round"><label>Search Terms:</label></div>
+          <!--Search is required-->
+          <input required class="round" style="width: 350px;" type="text" name="q" placeholder="Please enter search terms here...">
           <input class="round" style="margin-left: 10px;" type="submit" value="Submit">
           <input class="round" style="margin-left: 10px" type="reset" value="Reset">
         </div>
 
+        <!--Third div for the search result limit.-->
         <div class="margin">
+          <!-- Search result limit is checked by default. -->
           <input type="checkbox" id="sz" name="sz" value="12" checked>
           <label for="sz">Limit search results to 12 items per page</label>
         </div>
 
+        <!--Fourth div for the dropdown menu-->
         <div class="margin round">
-          <select name="srule" id="sort-options">
-            <option name="srule" value="Price Ascending">Sort items by price (ascending)</option>
-            <option name="srule" value="Price Descending">Sort items by price (descending)</option>
+          <!--Select element for the price descending / price ascending dropdown. -->
+          <select style="background-color: #fffff9;" class="round" name="srule">
+            <!-- Price ascending is selected by default. -->
+            <option value="Price Ascending" selected>Sort items by price (ascending)</option>
+            <option value="Price Descending">Sort items by price (descending)</option>
           </select>
         </div>
       </form>
