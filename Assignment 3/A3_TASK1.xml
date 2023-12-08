@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Assignment 3 (Task 1) by Ethan Dakin (8209194) -->
+
+<comparisons dated="2023-10-22" location="Sydney CBD" company="Trivago" url="https://www.trivago.com.au/">
+ <!-- Hotel rows, with each value adjusted according to the assignment 3 specifications.  -->
+  <hotel>
+    <name>Four Seasons Hotel Sydney</name>
+    <stars>5</stars>
+    <reviews>2641</reviews>
+    <score>9.2</score>
+  </hotel>
+
+  <hotel>
+    <name>Shangri-La Hotel Sydney</name>
+    <stars>5</stars>
+    <reviews>2990</reviews>
+    <score>8.7</score>
+  </hotel>
+
+  <hotel>
+    <name>Hilton Sydney</name>
+    <stars>5</stars>
+    <reviews>1772</reviews>
+    <score>8.4</score>
+  </hotel>
+
+  <hotel>
+    <name>Meriton Suites Kent Street</name>
+    <stars>4</stars>
+    <reviews>6611</reviews>
+    <score>8.9</score>
+  </hotel>
+
+  <hotel>
+    <name>Pier One Sydney Harbour (AC)</name>
+    <stars>5</stars>
+    <reviews>1572</reviews>
+    <score>8.7</score>
+  </hotel>
+
+  <hotel>
+    <name>West Hotel Sydney (CC)</name>
+    <stars>4</stars>
+    <reviews>1106</reviews>
+    <score>9.2</score>
+  </hotel>
+</comparisons>
