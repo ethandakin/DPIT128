@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Assignment 3 (Task 3) by Ethan Dakin (8209194) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- Element for base comparisons element -->
+  <xs:element name="comparisons">
+    <!-- Complex type as it has attributes. -->
+    <xs:complexType>
+      <!-- Sequence of hotels, as it is ordered -->
+      <xs:sequence>
+        <!-- Hotel element, with a minOccurence of 0 and a maxoccurence of unbounded.-->
+        <xs:element name="hotel" minOccurs="0" maxOccurs="unbounded">
+          <!-- Complex type as it has child elements. -->
+          <xs:complexType>
+            <!-- Sequence of elements in the hotel element-->
+            <xs:sequence>
+              <!-- All elements for the hotel, and they are simple types. -->
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="stars" type="xs:decimal"/>
+              <xs:element name="reviews" type="xs:integer"/>
+              <xs:element name="score" type="xs:decimal"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+      </xs:sequence>
+
+      <!-- All attributes with specified types, and all are required. -->
+      <xs:attribute name="dated" type="xs:date" use="required"/>
+      <xs:attribute name="location" type="xs:string" use="required"/>
+      <xs:attribute name="company" type="xs:string" use="required"/>
+      <xs:attribute name="url" type="xs:anyURI" use="required"/>
+
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

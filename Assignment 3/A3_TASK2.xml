@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Assignment 3 (Task 1) by Ethan Dakin (8209194) -->
+<!-- Assignment 3 (Task 2) by Ethan Dakin (8209194) -->
+
+<!DOCTYPE comparisons [
+  <!-- Element declarations -->
+  <!ELEMENT comparisons (hotel*)>
+  <!ELEMENT hotel (name, stars, reviews, score)>
+
+  <!-- Child elements, all are PCDATA -->
+  <!ELEMENT name (#PCDATA)>
+  <!ELEMENT stars (#PCDATA)>
+  <!ELEMENT reviews (#PCDATA)>
+  <!ELEMENT score (#PCDATA)>
+
+  <!-- Attribute lists, all are required. -->
+  <!ATTLIST comparisons dated CDATA #REQUIRED>
+  <!ATTLIST comparisons location CDATA #REQUIRED>
+  <!ATTLIST comparisons company CDATA #REQUIRED>
+  <!ATTLIST comparisons url CDATA #REQUIRED>
+]>   
 
 <!-- Comparisons element with attributes -->
 <comparisons dated="2023-10-22" location="Sydney CBD" company="Trivago" url="https://www.trivago.com.au/">

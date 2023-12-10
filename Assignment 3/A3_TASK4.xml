@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="A3_TASK4.xsl"?>
 
-<!-- Assignment 3 (Task 1) by Ethan Dakin (8209194) -->
+<!-- Assignment 3 (Task 4) by Ethan Dakin (8209194) -->
 
 <!-- Comparisons element with attributes -->
 <comparisons dated="2023-10-22" location="Sydney CBD" company="Trivago" url="https://www.trivago.com.au/">
