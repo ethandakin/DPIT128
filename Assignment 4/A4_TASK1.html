@@ -24,6 +24,7 @@
 
       /* INSERT INTERNAL CSS HERE */
 
+      /* Internal styling for all images, only used for the 3 images for HTML5, CSS3 and JS. */
       img {
         border: 1px dotted #808080;
         border-radius: 5px 15px;
@@ -31,12 +32,10 @@
         margin: 0px 15px 0px;
       }
 
+      /* Styling for the input field at the bottom of the page. */
       input {
         border: 1px dotted #808080; 
         border-radius: 4px;
-      }
-
-      input[type="text"] {
         text-align: center;
         width: 500px;
       }
@@ -45,6 +44,41 @@
     <script>
 
       // INSERT INTERNAL JAVASCRIPT HERE
+
+      // Function for double click on the HTML img.
+      function htmlDoubleClick() 
+      {
+        // Retrieve the user's name
+        let name = prompt("Please enter your name:");
+
+        // If the name is not null and not empty then
+        if (name != null && name != "") {
+          // alert with corresponding text.
+          alert('You have performed a "dbclick" event, ' + name + "!");
+        }
+      }
+
+      // Function for mouse movement on CSS img.
+      function cssMouseMove() 
+      {
+        // Get the h3 element
+        let element = document.getElementById("h3")
+        // Change style according to specifications
+        element.style = "color: #009900; font-family: courier; text-shadow: 3px 3px 3px #a6a6a6;"
+        // Change innerHtml to specifications
+        element.innerHTML = 'You have performed a "mousemove" event!'
+      }
+
+      // Function for wheel movement on js img.
+      function jsWheel()
+      {
+        // Get the input element
+        let element = document.getElementById("input")
+        // Change style accordingly
+        element.style = "color: #ff0000; font-family: arial; font-style: italic"
+        // Set the value (this is for an input element, changes the actual text in the element) to specified requirements.
+        element.value = 'You have performed a "wheel" event!'
+      }
 
     </script>
   </head>
@@ -60,17 +94,21 @@
       </a>
     </p>
     <hr>
+    <!-- h2 element for heading text -->
     <h2>Task 1: DOM Events &amp; JavaScript Handlers</h2>
 
     <!-- BEGIN: Task 1 Solution -->
 
-    <img src="https://mywebspace.net.au/UOWC128/assignment_4/images/html_5.png">
-    <img src="https://mywebspace.net.au/UOWC128/assignment_4/images/css_3.png">
-    <img src="https://mywebspace.net.au/UOWC128/assignment_4/images/java_script.png">
+    <!-- Create 3 images, hooking specified javascript events to each one. -->
+    <img src="https://mywebspace.net.au/UOWC128/assignment_4/images/html_5.png" alt="The HTML5 logo" ondblclick="htmlDoubleClick()">
+    <img src="https://mywebspace.net.au/UOWC128/assignment_4/images/css_3.png" alt="The CSS 3 logo" onmousemove="cssMouseMove()">
+    <img src="https://mywebspace.net.au/UOWC128/assignment_4/images/java_script.png" alt="The JavaScript logo" onwheel="jsWheel()">
 
-    <h3>Place your mouse over the second image to change this text!</h3>
+    <!-- Heading for the second image event. -->
+    <h3 id="h3">Place your mouse over the second image to change this text!</h3>
 
-    <input type="text" placeholder="Scroll over the third image to change this text!">
+    <!-- Input for the third image event. -->
+    <input id="input" type="text" placeholder="Scroll over the third image to change this text!">
     <!-- END: Task 1 Solution -->
 
     <p>&copy; Ethan Dakin</p>

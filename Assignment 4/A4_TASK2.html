@@ -24,6 +24,7 @@
 
       /* INSERT INTERNAL CSS HERE */
 
+      /* Styling for the main container and row elements. */
       .container {
         border: 1px dotted #a8a8a8;
         width: 400px;
@@ -32,27 +33,120 @@
       }
 
       .row {
-        padding: 15px;
+        padding: 20px;
       }
 
+      /* Image styling for the clock image. */
       img {
         width: 200px;
         border-radius: 100px;
         box-shadow: 5px 5px 5px 5px #888888;
       } 
 
+      /* Font for label elements */
       label {
         font: 14px arial;
       }
 
+      /* Enable mouse cursor for input and label elements. */
       label:hover, input:hover {
         cursor: pointer;
       }
 
+      /* Border for the start and stop buttons */
+      input[type="button"] {
+        width: 75px;
+        border: 1px dotted #a8a8a8;
+        border-radius: 3px;
+      }
+
+      /* Internal styling for the start and stop buttons. */
+      .start {
+        margin-right: 25px;
+      }
+
+      .stop {
+        margin-left: 25px;
+      }
+
     </style>
     <script>
-
       // INSERT INTERNAL JAVASCRIPT HERE
+
+      // An array of the clock images, in correct order
+      const images = [
+        "https://mywebspace.net.au/UOWC128/assignment_4/images/clock_state_1.png",
+        "https://mywebspace.net.au/UOWC128/assignment_4/images/clock_state_2.png",
+        "https://mywebspace.net.au/UOWC128/assignment_4/images/clock_state_3.png",
+        "https://mywebspace.net.au/UOWC128/assignment_4/images/clock_state_4.png"
+      ]
+
+      // Global variable index for changing clock image
+      var index = 0;
+      // Interval variable
+      var interval = null;
+
+      // Function when the start button is pressed
+      function start() {
+        // Get all the interval elements
+        var intervals = document.getElementsByName("interval")
+        // Empty variable duration
+        var duration;
+
+        // For loop for the length of intervals
+        for (var i = 0; i < intervals.length; i++) {
+          // Disable each interval element
+          intervals[i].disabled = true;
+          // If the interval is checked then,
+          if (intervals[i].checked) {
+            // Set the duration variable to the value of the interval (1, 3 or 5.)
+            duration = intervals[i].value
+          }
+        }
+
+        // If the interval already exists, clear it.
+        if (interval != null) {
+          clearInterval(interval)
+        }
+
+        // Set the interval handler to image, and the timeout is equal to duration * 1000 (milliseconds)
+        interval = setInterval(image, duration * 1000)
+      }
+
+      // Function when the stop button is pressed
+      function stop() {
+        // Get all the interval elements
+        var intervals = document.getElementsByName("interval")
+
+        // If there is already an interval then clear it.
+        if (interval != null) {
+          clearInterval(interval)
+          interval = null;
+        }
+
+        // Enable all the intervals
+        for (var i = 0; i < intervals.length; i++) {
+          intervals[i].disabled = false;
+        }
+      }
+
+      // Interval handler function
+      function image() {
+        // Get the direction from the reversed element.
+        var direction = document.getElementById("reversed").checked;
+
+        // If direction is reversed then
+        if (direction) {
+          // Index = (if index == 3 then 0, else index + 1)
+          index = index == 3 ? 0 : index + 1
+        } else {
+          // Index = (if index == 0 then 3, else index - 1)
+          index = index == 0 ? 3 : index - 1;
+        }
+
+        // Set the image to the specified index in the images array.
+        document.getElementById("clock").src = images[index];
+      }
 
     </script>
   </head>
@@ -72,35 +166,50 @@
 
     <!-- BEGIN: Task 2 Solution -->
 
+    <!-- Main container for the interface  -->
     <div class="container" style="background-color: #f8f8f8;">
-      <div class="row">
-        <img src="https://mywebspace.net.au/UOWC128/assignment_4/images/clock_state_1.png">
+      <!-- First row, this is the image one. -->
+      <div style="margin-top: 15px; margin-bottom: 5px;">
+        <!-- Img element of the clock -->
+        <img id="clock" alt="An image of a clock." src="https://mywebspace.net.au/UOWC128/assignment_4/images/clock_state_1.png">
       </div>
 
-
+      <!-- Second row, this is the radio buttons. -->
       <div class="row">
+        <!-- Each radio button is in it's own div. -->
+        <!-- Furthermore, they are all grouped within the interval group. -->
+        <!-- Each radio button has it's own label. -->
         <div>
-          <input type="radio" name="interval" id="1-second" checked>
+          <input type="radio" name="interval" id="1-second" value="1" checked>
           <label for="1-second">1 Second Interval</label>
         </div>
 
         <div>
-          <input type="radio" name="interval" id="3-second">
+          <input type="radio" name="interval" id="3-second" value="3">
           <label for="3-second">3 Second Interval</label>
         </div>
 
         <div>
-          <input type="radio" name="interval" id="5-second">
+          <input type="radio" name="interval" id="5-second" value="5">
           <label for="5-second">5 Second Interval</label>
         </div>
       </div>
 
-      <div class="row" style="background-color: #bfbfbf; margin-bottom: 15px;">
+      <!-- Third row, this is for the reverse direction section. -->
+      <!-- This has custom styling. -->
+      <div class="row" style="background-color: #bfbfbf; margin-bottom: 25px;">
         <input type="checkbox" name="reversed" id="reversed">
         <label for="reversed">Reverse Direction</label>
       </div>
 
 
+    </div>
+
+    <!-- Second container for the start / stop buttons. -->
+    <div style="padding: 30px;">
+      <!-- Each button has an onclick connection with the corresponding function in the internal js. -->
+      <input class="start" type="button" value="Start" onclick="start()">
+      <input class="stop" type="button" value="Stop" onclick="stop()">
     </div>
 
     <!-- END: Task 2 Solution -->

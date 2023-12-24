@@ -48,10 +48,75 @@
         color: #0080ff;
       }
 
+      .start {
+        width: 100px;
+        height: 35px;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        border: 1px dotted #008000;
+        border-radius: 5px;
+        background-color: #ecf4f2;
+        color: #008000;
+      }
+
     </style>
     <script>
 
       // INSERT INTERNAL JAVASCRIPT HERE
+
+      function generateNumbers() {
+        let number = 0
+        let numbers = []
+
+        for (let i = 0; i < 3; i++) {
+          do {
+            number = Math.floor(Math.random() * 10) + 1
+          } while (numbers.indexOf(number) != -1)
+
+          numbers.push(number)
+        }
+
+        return numbers
+      }
+
+      function start() {
+        let input = document.getElementById("input")
+        let image = document.getElementById("image")
+        let number = input.value
+
+        if (number >= 1 && number <= 10) {
+          let numbers = generateNumbers()
+          let winner = false;
+
+          for (let i = 0; i <= numbers.length; i++) {
+            document.getElementById(i).value = numbers[i]
+
+            if (numbers[i] == number) {
+              winner = true
+            }
+
+            if (winner) {
+              image.src = "https://mywebspace.net.au/UOWC128/assignment_4/images/win_state.png"
+            } else {
+              image.src = "https://mywebspace.net.au/UOWC128/assignment_4/images/loss_state.png"
+            }
+          }
+
+
+
+
+
+
+        } else {
+          if (number != "") {
+            input.value = "A"
+          }
+
+          image.src = "https://mywebspace.net.au/UOWC128/assignment_4/images/error_state.png"
+        }
+
+      }
 
     </script>
   </head>
@@ -71,23 +136,27 @@
 
     <!-- BEGIN: Task 3 Solution -->
 
-    <img src="https://mywebspace.net.au/UOWC128/assignment_4/images/initial_state.png">
+    <audio></audio>
+    <img id="image" src="https://mywebspace.net.au/UOWC128/assignment_4/images/initial_state.png">
+
 
     <div>
-      <input class="random-input" type="text" placeholder="?" readonly>
-      <input class="random-input" type="text" placeholder="?" readonly>
-      <input class="random-input" type="text" placeholder="?" readonly>
-
+      <input id="0" class="random-input" type="text" placeholder="?" readonly>
+      <input id="1" class="random-input" type="text" placeholder="?" readonly>
+      <input id="2" class="random-input" type="text" placeholder="?" readonly>
     </div>
 
     <div>
-      <label style="font: arial-16px; line-height: 23px;">Enter a number between 1 and 10 (inclusive) and then click the "Start" button to begin!</label>
+      <label style="font: 16px arial; line-height: 23px;">Enter a number between 1 and 10 (inclusive) and then click the "Start" button to begin!</label>
     </div>
 
     
     <div>
-      <input class="user-input" autofocus>
+      <input id="input" class="user-input" autofocus>
     </div>
+
+    <input type="button" class="start" value="Start" onclick="start()">
+
 
 
     <!-- END: Task 3 Solution -->
