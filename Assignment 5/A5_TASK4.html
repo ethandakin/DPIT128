@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<!-- Assignment 5 (Task 4) by ETHAN DAKIN (8209194) -->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DPIT128: Assignment 5 (Task ?)</title>
+    <style>
+
+      /* BEGIN: Template CSS (DO NOT ALTER/REMOVE) ----------- */
+
+      body {
+        background-color: #ededed;
+        text-align: center;
+      }
+
+      input:focus {
+        box-shadow: 0px 0px 1px 1px #8eb5d5;
+        outline: none;
+      }
+
+      input:hover {
+        cursor: pointer;
+      }
+
+      /* END: Template CSS (DO NOT ALTER/REMOVE) ------------- */
+
+      /* INSERT INTERNAL CSS HERE */
+
+      input[type="button"] {
+        width: 100px;
+        padding: 10px;
+        background-color: #ecf2f4;
+      }
+
+      .left-align {
+        text-align: left;
+      }
+
+      caption {
+        font-size: 21px;
+        font-weight: bold;
+        padding-top: 30px;
+        padding-bottom: 10px;
+      }
+
+      table, th, td {
+        border: 1px solid #808080;
+        border-collapse: collapse;
+        margin: auto;
+      }
+
+      th, td {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      th {
+        background-color: #b9b9b9;
+      }
+
+      tr:nth-child(even) {
+        background-color: #e0e0e0;
+      }
+
+
+    </style>
+    <script>
+
+      // INSERT INTERNAL JAVASCRIPT HERE
+
+      function processRequest() {
+        const xhrObject = new XMLHttpRequest();
+
+        xhrObject.onreadystatechange = function ()
+        {
+          if (this.readyState == 4 && this.status == 200)
+          {
+            processResponse(this.responseText); // The "responseText" property is passed as an argument
+          }
+        };
+
+        xhrObject.open("get", "A5_TASK3.json", true); // The request is explicitly set to 'asynchronous' mode
+
+        xhrObject.send();
+      }
+
+      function processResponse(jsonText) {
+        // Parse JSON to get JS object literal.
+        const response = JSON.parse(jsonText); 
+
+        // For loop through rider stats
+        for (let index = 0; index < response.riderStats.length; index++) {
+          // Assign riderInfo to a variable
+          let riderInfo = response.riderStats[index];
+          // Calculate and assign the losses variable.
+          riderInfo.losses = riderInfo.starts - riderInfo.wins;
+          // Calculate and assign the win percentage variable
+          riderInfo.winPercentage = (riderInfo.wins / riderInfo.starts) * 100;
+        }
+
+        // Create sort function for response.riderStats
+        response.riderStats.sort(function(first, second) {
+          // Return the second win percentage minus the first win percentage.
+          // This will return the array sorted by win percentage in descending order.
+          return second.winPercentage - first.winPercentage
+        }) 
+
+        // Create output string for html.
+        var output = "";
+        
+        // Create table
+        output += "<table>";
+        // Add topic and subject for the caption
+        output += "<caption>" + response.topic + ": " + response.subject;
+        // Create table headers.
+        output += "<tr>";
+        output += "<th>Titles</th>"
+        output += "<th>Rider Name</th>";
+        output += "<th>Total Starts</th>"
+        output += "<th>Total Wins</th>"
+        output += "<th>Total Losses</th>"
+        output += "<th>Win Percentage</th>"
+        output += "</tr>"
+
+        // For loop through all rider stats.
+        for (let index = 0; index < response.riderStats.length; index++) {
+          // Declare riderInfo
+          let riderInfo = response.riderStats[index]
+          // Create new row
+          output += "<tr>";
+          // Add titles
+          output += "<td>" + riderInfo.titles + "</td>";
+          // Add the link and the name
+          output += "<td class=\"left-align\"><a target='_blank' href=" + riderInfo.link + '>' + riderInfo.name + "</a</td>";
+          // Add the amount of race starts.
+          output += "<td>" + riderInfo.starts + "</td>"
+          // Add the amount of wins.
+          output += "<td>" + riderInfo.wins + "</td>"
+          // Add the losses
+          output += "<td>" + riderInfo.losses + "</td>"
+
+          // Declare colour
+          let colour;
+
+          // Specify cell colour based on design specifications
+          if (riderInfo.winPercentage < 30) {
+            colour = "#ff9999"
+          } else if (30 <= riderInfo.winPercentage && riderInfo.winPercentage < 50) {
+            colour = "#ffdb99"
+          } else {
+            colour = "#99cc99"
+          }
+
+          // Create cell for win percentage, fixed to two decimal places.
+          output += '<td style="background-color: ' + colour +'">'  + (riderInfo.winPercentage).toFixed(2) + "%</td>"
+        }
+       
+        // End table
+        output += "</table>"
+        // Create end h3 element, with the source and sourceUrl.
+        output += "<h3>The raw data for calculating these results has been obtained from " + "<a target='_blank' href=" + response.sourceUrl + ">" + response.source +  "</a>.";
+        // Output to output-div element.
+        document.getElementById("output-div").innerHTML = output;
+      }
+
+    </script>
+  </head>
+  <body>
+    <h1>DPIT128: Assignment 5</h1>
+    <h2>ETHAN DAKIN (8209194)</h2>
+    <h3>Date Due: 19/01/2024</h3>
+    <hr>
+    <p style="font-weight: bold;">
+      I have viewed the College&apos;s policy regarding Academic Integrity as provided at the following URL:<br>
+      <a href="https://www.uowcollege.edu.au/site-assets/uow-college-australia/documents/16-02-2023-Academic-Integrity-and-Student-Conduct-Policy.pdf" target="_blank">
+        https://www.uowcollege.edu.au/site-assets/uow-college-australia/documents/16-02-2023-Academic-Integrity-and-Student-Conduct-Policy.pdf
+      </a>
+    </p>
+    <hr>
+    <h2>Task 4: AJAX &amp; JSON</h2>
+
+    <!-- BEGIN: Task 4 Solution -->
+    <!-- Create input button, with value Start, autofocus and calls processRequest on click. -->
+    <input type="button" value="Start" onclick="processRequest();" autofocus>
+    <!-- Empty output div for when outputting from processResponse().-->
+    <div id="output-div"></div>
+
+    <!-- END: Task 4 Solution -->
+
+    <p>&copy; ETHAN DAKIN</p>
+  </body>
+</html>

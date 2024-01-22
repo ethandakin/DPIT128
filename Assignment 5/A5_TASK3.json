@@ -1,0 +1,79 @@
+{
+  "topic": "MotoGP Racing",
+  "subject": "Top 10 Multiple Champions",
+  "source": "Wikipedia",
+  "sourceUrl": "https://en.wikipedia.org/wiki/List_of_500cc/MotoGP_Motorcycle_World_Champions#Multiple_champions",
+  "riderStats":
+  [
+    {
+      "titles": "8",
+      "name": "Giacomo Agostini",
+      "starts": 223,
+      "wins": 122,
+      "link": "https://en.wikipedia.org/wiki/Giacomo_Agostini"
+    },
+    {
+      "titles": "7",
+      "name": "Valentino Rossi",
+      "starts": 372,
+      "wins": 89,
+      "link": "https://en.wikipedia.org/wiki/Valentino_Rossi"
+    },
+    {
+      "titles": "6",
+      "name": "Marc Marquez",
+      "starts": 154,
+      "wins": 59,
+      "link": "https://en.wikipedia.org/wiki/Marc_Marquez"
+    },
+    {
+      "titles": "5",
+      "name": "Mick Doohan",
+      "starts": 137,
+      "wins": 54,
+      "link": "https://en.wikipedia.org/wiki/Mick_Doohan"
+    },
+    {
+      "titles": "4",
+      "name": "Geoff Duke",
+      "starts": 89,
+      "wins": 33,
+      "link": "https://en.wikipedia.org/wiki/Geoff_Duke"
+    },
+    {
+      "titles": "4",
+      "name": "John Surtees",
+      "starts": 68,
+      "wins": 38,
+      "link": "https://en.wikipedia.org/wiki/John_Surtees"
+    },
+    {
+      "titles": "4",
+      "name": "Mike Hailwood",
+      "starts": 152,
+      "wins": 76,
+      "link": "https://en.wikipedia.org/wiki/Mike_Hailwood"
+    },
+    {
+      "titles": "4",
+      "name": "Eddie Lawson",
+      "starts": 127,
+      "wins": 31,
+      "link": "https://en.wikipedia.org/wiki/Eddie_Lawson"
+    },
+    {
+      "titles": "3",
+      "name": "Kenny Roberts",
+      "starts": 60,
+      "wins": 24,
+      "link": "https://en.wikipedia.org/wiki/Kenny_Roberts"
+    },
+    {
+      "titles": "3",
+      "name": "Wayne Rainey",
+      "starts": 94,
+      "wins": 24,
+      "link": "https://en.wikipedia.org/wiki/Wayne_Rainey"
+    }
+  ]
+}

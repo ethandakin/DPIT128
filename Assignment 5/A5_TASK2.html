@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<!-- Assignment 5 (Task 2) by ETHAN DAKIN (8209194) -->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DPIT128: Assignment 5 (Task ?)</title>
+    <style>
+
+      /* BEGIN: Template CSS (DO NOT ALTER/REMOVE) ----------- */
+
+      body {
+        background-color: #ededed;
+        text-align: center;
+      }
+
+      input:focus {
+        box-shadow: 0px 0px 1px 1px #8eb5d5;
+        outline: none;
+      }
+
+      input:hover {
+        cursor: pointer;
+      }
+
+      /* END: Template CSS (DO NOT ALTER/REMOVE) ------------- */
+
+      /* INSERT INTERNAL CSS HERE */
+
+      /* Type selector for input button. */
+      input[type="button"] {
+        width: 100px;
+        padding: 10px;
+        background-color: #ecf2f4;
+      }
+
+      /* Left align for specific table elements. */
+      .left-align {
+        text-align: left;
+      }
+
+      /* Type selector for caption element in table */
+      caption {
+        font-size: 21px;
+        font-weight: bold;
+        padding-top: 30px;
+        padding-bottom: 10px;
+      }
+
+      /* Table and table cell border and margin */
+      table, th, td {
+        border: 1px solid #808080;
+        border-collapse: collapse;
+        margin: auto;
+      }
+
+      /* Font size and padding for cells */
+      th, td {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      /* Background colour for th element */
+      th {
+        background-color: #b9b9b9;
+      }
+
+      /* Background colour for even elements in the table */
+      tr:nth-child(even) {
+        background-color: #e0e0e0;
+      }
+
+
+    </style>
+    <script>
+
+      // INSERT INTERNAL JAVASCRIPT HERE
+
+      // processRequest uses AJAX to fetch an XML file.
+      function processRequest() {
+        const xhrObject = new XMLHttpRequest();
+
+        xhrObject.onreadystatechange = function ()
+        {
+          if (this.readyState == 4 && this.status == 200)
+          {
+            processResponse(this.responseXML); // The "responseXML" property is passed as an argument
+          }
+        };
+
+        xhrObject.open("get", "A5_TASK1.xml", true); // The request is explicitly set to 'asynchronous' mode
+
+        xhrObject.send();
+      }
+
+      // Called after the XML file is retrieved in processRequest
+      function processResponse(xmlTree) {
+        // Default string for output html.
+        var output = "";
+        // Begin table
+        output += "<table>";
+        // Caption element
+        output += "<caption>" 
+          // Add link from xml
+          + "<a target='_blank' href=" + xmlTree.getElementsByTagName("comparisons")[0].getAttribute("url") + '>' 
+          // Get the company name
+          + xmlTree.getElementsByTagName("comparisons")[0].getAttribute("company") 
+          + '</a>: &quot;'
+          // Get the location
+          + xmlTree.getElementsByTagName("comparisons")[0].getAttribute("location") 
+          + '&quot; Search Results</caption>';
+        // Add the table headers
+        output += "<tr>";
+        output += "<th>Result #</th>"
+        output += "<th>Hotel Name</th>";
+        output += "<th>Star Rating</th>"
+        output += "<th>Total Reviews</th>"
+        output += "<th>Overall Score</th>"
+        output += "</tr>"
+
+        // For loop for all hotels in xml file
+        for (let index = 0; index < xmlTree.getElementsByTagName("hotel").length; index++) {
+          // Make a new row
+          output += "<tr>";
+          // Add index + 1 (index begins at 0)
+          output += "<td>" + (index + 1) + "</td>";
+          // Add name
+          output += "<td class=\"left-align\">" + xmlTree.getElementsByTagName("name")[index].childNodes[0].nodeValue + "</td>";
+          output += "<td>"
+
+          // Switch case for stars, but type casting is required, as it is a string by default.
+          switch(Number (xmlTree.getElementsByTagName("stars")[index].childNodes[0].nodeValue)) {
+            case 1:
+              // Each image has an alt representing how many stars.
+              output += '<img alt="1 star." src="https://mywebspace.net.au/UOWC128/assignment_5/images/1_star.png">'
+              break;
+            case 2:
+              output += '<img alt="2 stars." src="https://mywebspace.net.au/UOWC128/assignment_5/images/2_stars.png">'
+              break;
+            case 3:
+              output += '<img alt="3 stars." src="https://mywebspace.net.au/UOWC128/assignment_5/images/3_stars.png">'
+              break;
+            case 4:
+              output += '<img alt="4 stars." src="https://mywebspace.net.au/UOWC128/assignment_5/images/4_stars.png">'
+              break;
+            case 5:
+              output += '<img alt="5 stars." src="https://mywebspace.net.au/UOWC128/assignment_5/images/5_stars.png">'
+              break;
+            default:
+              // Default to 1 star, as I have no other image here...
+              output += '<img alt="1 star." src="https://mywebspace.net.au/UOWC128/assignment_5/images/1_star.png">'
+              break;
+          }
+
+          output += "</td>"
+          // Add reviews, but formatted with en-AU locale.
+          output += "<td>" + Number (xmlTree.getElementsByTagName("reviews")[index].childNodes[0].nodeValue).toLocaleString('en-AU') + "</td>";
+
+          // Get score
+          let score = xmlTree.getElementsByTagName("score")[index].childNodes[0].nodeValue
+          let colour;
+
+          // Set colour from specifications
+          if (score < 8.5) {
+            colour = "#ff9999"
+          } else if (8.5 <= score && score < 9.0) {
+            colour = "#ffdb99"
+          } else {
+            colour = "#99cc99"
+          }
+          
+          // Add background color to final 
+          output += '<td style="background-color: ' + colour + ';">' + score + "</td>"
+          // End row
+          output += "</tr>"
+        }
+
+        // End table
+        output += "</table>"
+        // Add h3 element for when the table was last updated, by creating a new Date, and using the method to LocaleDateString with en-AU locale.
+        output += '<h3>This result was last updated on ' + new Date(xmlTree.getElementsByTagName("comparisons")[0].getAttribute("dated")).toLocaleDateString('en-AU') + ".</h3"
+
+        // Set output-div html to the output string.
+        document.getElementById("output-div").innerHTML = output;
+      }
+
+    </script>
+  </head>
+  <body>
+    <h1>DPIT128: Assignment 5</h1>
+    <h2>ETHAN DAKIN (8209194)</h2>
+    <h3>Date Due: 19/01/2024</h3>
+    <hr>
+    <p style="font-weight: bold;">
+      I have viewed the College&apos;s policy regarding Academic Integrity as provided at the following URL:<br>
+      <a href="https://www.uowcollege.edu.au/site-assets/uow-college-australia/documents/16-02-2023-Academic-Integrity-and-Student-Conduct-Policy.pdf" target="_blank">
+        https://www.uowcollege.edu.au/site-assets/uow-college-australia/documents/16-02-2023-Academic-Integrity-and-Student-Conduct-Policy.pdf
+      </a>
+    </p>
+    <hr>
+    <h2>Task 2: AJAX &amp; XML</h2>
+    <!-- BEGIN: Task 2 Solution -->
+
+    <!-- Create input button, with value Start, autofocus and calls processRequest on click. -->
+    <input type="button" value="Start" onclick="processRequest();" autofocus>
+    <!-- Empty div for when outputting from processResponse() -->
+    <div id="output-div"></div>
+
+    <!-- END: Task 2 Solution -->
+    <p>&copy; ETHAN DAKIN</p>
+  </body>
+</html>
